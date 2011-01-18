@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <title>Home</title>
+  </head>
+  <body class="lift:content_id=main">
+    <div id="main" class="lift:surround?with=default;at=content">
+
+      <div class="lift:TestCond.loggedIn">
+	<form id="saySomethingForm" class="lift:Quotes.create" method="post">
+	  <p>
+	    <label for="text">Say something</label><br/>
+	    <textarea id="text"></textarea>
+	  </p>
+	  <p><input id="submit" type="submit" value="Say it" /></p>
+	</form>
+      </div>
+      <div class="lift:TestCond.loggedOut">
+	<p>Please <a href="/user_mgt/login">log in</a> to say something.</p>
+      </div>
+
+      <div class="column span-8">
+	<h2>Recent Quotes</h2>
+	<div class="lift:Quotes.recent?eager_eval=true">
+	  <div class="lift:embed?what=quote"></div>
+	</div>
+      </div>
+
+      <div class="column span-1">&nbsp;</div>
+
+      <div class="column span-8 last">
+	<h2>Popular Quotes</h2>
+	<div class="lift:Quotes.popular?eager_eval=true">
+	  <lift:embed what="quote" />
+	</div>
+      </div>
+      
+    </div>
+  </body>
+</html>
+
